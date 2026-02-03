@@ -8,13 +8,6 @@ Accurate segmentation of coronary arteries from Coronary CT Angiography (CCTA) i
 
 To address these challenges, we propose **ACE-ProtoNet**, a unified framework that couples an **Adaptive Covariance Eigen-Gate (ACE-Gate)** with an **Uncertainty-aware Prototype Learning Head (UPL-Head)** to achieve robust and accurate coronary artery segmentation.
 
-### Key Features
-* **Parallel Dual-Encoder Backbone:** Synergizes a partially frozen Vision Foundation Model (VFM) for global structural encoding with a trainable CNN for fine-grained local feature extraction.
-* **ACE-Gate:** Explicitly models inter-channel dependencies through covariance analysis and eigenvalue decomposition, yielding statistically grounded, channel-wise gating for principled feature integration.
-* **UPL-Head:** Leverages voxel-wise predictive uncertainty to modulate prototype-guided attention and dynamically update prototypes during training. This enhances representation robustness in hard-to-classify regions and improves overall segmentation accuracy.
-
-Extensive experiments on two in-house and three public datasets demonstrate that ACE-ProtoNet consistently outperforms state-of-the-art methods across multiple metrics, exhibiting superior cross-domain generalization as well as strong cross-modality and cross-anatomy transferability.
-
 This repository provides:
 * Training and inference code for ACE-ProtoNet
 * Data organization guidelines
