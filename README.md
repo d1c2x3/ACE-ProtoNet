@@ -13,13 +13,14 @@ This repository provides:
 - Training and inference code for ACE-ProtoNet
 - Data organization guidelines
 - Reproducible experimental setup
-- 
+  
 # Example dependencies
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-pip install numpy SimpleITK tqdm scikit-learn
+```pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install numpy SimpleITK tqdm scikit-learn```
 
 ## 📁 Data Preparation
 As used in train.py and test.py, the preprocessed CCTA data should be organized as follows:
+```
 data
 └── npy
     ├── img
@@ -30,13 +31,15 @@ data
         ├── 1.npy
         ├── 2.npy
         └── ...
+```
+        
 img/: preprocessed CCTA volumes saved as NumPy arrays
 mask/: corresponding ground-truth coronary artery masks
 Each image–mask pair must share the same filename
 
 ##Training
-python train.py
+```python train.py```
 
 ##Inference / Testing
-python test.py
+```python test.py```
 
