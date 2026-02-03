@@ -1,16 +1,25 @@
 # ACE-ProtoNet
-We recommend using conda to create a virtual environment:
 
-conda create -n casnet python=3.8
-conda activate casnet
-Install the required dependencies (we recommend creating a requirements.txt file based on your environment):
+Official implementation of **ACE-ProtoNet**, a prototype-driven framework for coronary artery segmentation from coronary computed tomography angiography (CCTA).
 
-# Example dependencies, please modify according to your project
+---
+
+## 📌 Overview
+
+Accurate coronary artery segmentation is challenging due to complex vessel topology, small vessel branches, and ambiguous boundaries.  
+ACE-ProtoNet addresses these challenges by introducing uncertainty-aware prototype learning into a deep encoder–decoder architecture, enabling robust representation of tubular structures in CCTA volumes.
+
+This repository provides:
+- Training and inference code for ACE-ProtoNet
+- Data organization guidelines
+- Reproducible experimental setup
+- 
+# Example dependencies
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install numpy SimpleITK tqdm scikit-learn
-Data Preparation
-As seen in test.py or train.py, the preprocessed CCTA data should be organized with the following structure:
 
+## 📁 Data Preparation
+As used in train.py and test.py, the preprocessed CCTA data should be organized as follows:
 data
 └── npy
     ├── img
@@ -21,14 +30,13 @@ data
         ├── 1.npy
         ├── 2.npy
         └── ...
-Usage
-Training
-Use the following command to start training the CAS-Net model. Please modify the parameters according to your setup.
+img/: preprocessed CCTA volumes saved as NumPy arrays
+mask/: corresponding ground-truth coronary artery masks
+Each image–mask pair must share the same filename
 
-python train.py 
-Inference / Testing
-Use the trained model weights to perform inference on the test set.
+##Training
+python train.py
 
-python test.py 
-Acknowledgements
-We would like to extend our special thanks to the authors of CS²-Net (DOI: 10.1016/j.media.2020.101874). Their work served as an important backbone for our study, and their public code repository is exceptionally well-structured.
+##Inference / Testing
+python test.py
+
