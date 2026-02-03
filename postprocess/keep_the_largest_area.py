@@ -25,9 +25,9 @@ def get_aorta_branch(mask):
     mask_branch = part_filter(mask_branch)
     return mask_filter_erode,mask_branch
 
-###贴标签，保留最大面积
+
 def backpreprcess(ret_box):
-    #Label后处理
+    
     box = []
     [heart_res, num] = measure.label(ret_box, return_num = True)
     region = measure.regionprops(heart_res)
@@ -139,3 +139,4 @@ def part_filter(mask):
     mask_cp = np.array(mask_cp, dtype='uint8')
 
     return mask_cp
+
