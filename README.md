@@ -20,8 +20,8 @@ pip install numpy SimpleITK tqdm scikit-learn```
 
 ## 📁 Data Preparation
 As used in train.py and test.py, the preprocessed CCTA data should be organized as follows:
-```
-data
+
+```data
 └── npy
     ├── img
     │   ├── 1.npy
@@ -30,8 +30,7 @@ data
     └── mask
         ├── 1.npy
         ├── 2.npy
-        └── ...
-```
+        └── ...```
         
 img/: preprocessed CCTA volumes saved as NumPy arrays
 mask/: corresponding ground-truth coronary artery masks
