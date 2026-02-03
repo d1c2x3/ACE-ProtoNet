@@ -15,8 +15,8 @@ This repository provides:
 - Reproducible experimental setup
   
 # Example dependencies
-```pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-pip install numpy SimpleITK tqdm scikit-learn```
+-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+-pip install numpy SimpleITK tqdm scikit-learn
 
 ## 📁 Data Preparation
 As used in train.py and test.py, the preprocessed CCTA data should be organized as follows:
