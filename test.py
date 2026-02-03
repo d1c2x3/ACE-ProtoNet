@@ -1,13 +1,4 @@
-'''
-@author: caixia_dong
-@license: (C) Copyright 2020-2023, Medical Artificial Intelligence, XJTU.
-@contact: caixia_dong@xjtu.edu.cn
-@software: MedAI
-@file: train.py
-@time: 2022/7/22 14:49
-@version:
-@desc:
-'''
+
 import torch.nn as nn
 
 from model.csnet_3d import CSNet3D
