@@ -68,7 +68,15 @@ To evaluate the trained model on the test set, run:
 ```bash
 python test.py
 ```
+## 📦 Pre-trained Weights
 
+Due to GitHub's file size limits, the pre-trained model checkpoints are hosted on Google Drive. 
+
+| Dataset | Checkpoint File | Download Link |
+| :--- | :--- | :--- |
+| **ASOCA** | `model_best_model.ptk` | [🔗 Google Drive Link](https://drive.google.com/file/d/1unZwue8W2pGoleUawu-85CrCMlljtw7T/view?usp=sharing) |
+
+**Note:** Please download the weights and place them in the `./checkpoints/` directory before running the evaluation scripts.
 ---
 
 
