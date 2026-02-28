@@ -1,30 +1,61 @@
-# ACE-ProtoNet: Adaptive Covariance Eigen-Gate and Uncertainty-Aware Prototype Learning for Coronary Artery Segmentation
+# ACE-ProtoNet
 
-This repository contains the **official PyTorch implementation** of the paper: **"ACE-ProtoNet: Adaptive Covariance Eigen-Gate and Uncertainty-Aware Prototype Learning for Coronary Artery Segmentation"**.
+**Adaptive Covariance Eigen-Gate and Uncertainty-Aware Prototype Learning for Coronary Artery Segmentation**
+
+This repository contains the **official PyTorch implementation** of our paper:
+
+> **ACE-ProtoNet: Adaptive Covariance Eigen-Gate and Uncertainty-Aware Prototype Learning for Coronary Artery Segmentation**
+
+---
 
 ## 📌 Overview
 
-Accurate segmentation of coronary arteries from Coronary CT Angiography (CCTA) is essential for quantitative stenosis evaluation, plaque characterization, and surgical planning. However, automated segmentation faces significant challenges due to low vessel-to-background contrast, high anatomical variability, and complex, tree-like vascular morphology.
+Accurate segmentation of coronary arteries from **Coronary CT Angiography (CCTA)** is critical for:
 
-To address these challenges, we propose **ACE-ProtoNet**, a unified framework that couples an **Adaptive Covariance Eigen-Gate (ACE-Gate)** with an **Uncertainty-aware Prototype Learning Head (UPL-Head)** to achieve robust and accurate coronary artery segmentation.
+* Quantitative stenosis assessment
+* Plaque characterization
+* Preoperative planning and intervention guidance
 
-This repository provides:
-* Training and inference code for ACE-ProtoNet
-* Data organization guidelines
-* Reproducible experimental setup
+However, automated coronary artery segmentation remains challenging due to:
+
+* Low vessel-to-background contrast
+* High anatomical variability
+* Complex and highly branching vascular topology
+
+To address these issues, we propose **ACE-ProtoNet**, a unified framework that integrates:
+
+* **Adaptive Covariance Eigen-Gate (ACE-Gate)**
+  → Enhances structural feature representation via covariance eigen modulation
+
+* **Uncertainty-aware Prototype Learning Head (UPL-Head)**
+  → Introduces prototype learning with uncertainty-aware response calibration
+
+Together, these components enable robust and accurate coronary artery segmentation in challenging clinical scenarios.
+
+---
+
+## ✨ Key Features
+
+* End-to-end 3D segmentation framework
+* Covariance-driven structural gating mechanism
+* Uncertainty-aware prototype learning
+* Fully reproducible training and evaluation pipeline
 
 ---
 
 ## 🛠️ Requirements
 
-The code is implemented in Python using PyTorch. We recommend using a virtual environment.
+The codebase is implemented in **Python (≥3.8)** using **PyTorch**.
+
+We strongly recommend creating a virtual environment.
 
 ### Install Dependencies
+
 ```bash
-# Install PyTorch (adjust cuda version if necessary)
+# Install PyTorch (adjust CUDA version if necessary)
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
-# Install other necessary libraries
+# Install additional dependencies
 pip install numpy SimpleITK tqdm scikit-learn
 ```
 
@@ -32,9 +63,11 @@ pip install numpy SimpleITK tqdm scikit-learn
 
 ## 📂 Data Preparation
 
-As used in `train.py` and `test.py`, the preprocessed CCTA data should be organized as follows. The data format is expected to be NumPy arrays (`.npy`).
+As used in `train.py` and `test.py`, the preprocessed CCTA data should be organized in the following structure.
 
-```text
+All volumes are expected in **NumPy (`.npy`) format**.
+
+```
 Data/
 └── npy/
     ├── img/
@@ -47,43 +80,98 @@ Data/
         └── ...
 ```
 
-* **`img/`**: Preprocessed CCTA volumes saved as NumPy arrays.
-* **`mask/`**: Corresponding ground-truth coronary artery masks.
-* **Note**: Each image–mask pair **must share the same filename** (e.g., `1.npy` in `img/` corresponds to `1.npy` in `mask/`).
+### Directory Description
 
-A data-splitting script is also provided:
+* `img/` — Preprocessed CCTA volumes
+* `mask/` — Corresponding ground-truth coronary artery masks
 
-`datasets/create_folder.py`
+⚠️ **Important:**
+Each image–mask pair **must share the same filename**.
+For example:
 
-This script automatically creates the required folder structure and splits the dataset into training/validation/testing subsets.
+```
+img/1.npy  ↔  mask/1.npy
+```
+
+---
+
+### 🔀 Dataset Splitting
+
+A dataset splitting utility is provided:
+
+```
+datasets/create_folder.py
+```
+
+This script:
+
+* Automatically generates the required folder structure
+* Splits the dataset into training / validation / testing subsets
+* Ensures reproducibility of experimental results
+
 ---
 
 ## 🚀 Usage
 
-### 1. Training
-To train the ACE-ProtoNet model on your prepared dataset, run the following command:
+### 1️⃣ Training
+
+To train ACE-ProtoNet on your prepared dataset:
 
 ```bash
 python train.py
 ```
 
-### 2. Inference / Testing
-To evaluate the trained model on the test set, run:
+---
+
+### 2️⃣ Evaluation / Testing
+
+To evaluate a trained model on the test set:
 
 ```bash
 python test.py
 ```
-## 📦 Pre-trained Weights
 
-Due to GitHub's file size limits, the pre-trained model checkpoints are hosted on Google Drive. 
-
-| Dataset | Checkpoint File | Download Link |
-| :--- | :--- | :--- |
-| **ASOCA** | `model_best_model.ptk` | [🔗 Google Drive Link](https://drive.google.com/file/d/1unZwue8W2pGoleUawu-85CrCMlljtw7T/view?usp=sharing) |
-
-**Note:** Please download the weights and place them in the `./checkpoints/` directory before running the evaluation scripts.
 ---
 
+## 📦 Pre-trained Weights
+
+Due to GitHub file size limitations, pretrained checkpoints are hosted externally.
+
+| Dataset   | Checkpoint             | Download                                                                                              |
+| --------- | ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| **ASOCA** | `model_best_model.ptk` | [🔗 Google Drive](https://drive.google.com/file/d/1unZwue8W2pGoleUawu-85CrCMlljtw7T/view?usp=sharing) |
+
+### Usage Instructions
+
+1. Download the checkpoint file
+2. Place it in:
+
+```
+./checkpoints/
+```
+
+3. Run `test.py` for evaluation
+
+---
+
+## 📊 Reproducibility
+
+To ensure reproducibility:
+
+* Use identical data preprocessing
+* Maintain consistent file naming conventions
+* Verify CUDA / PyTorch compatibility
+
+For exact experimental settings, please refer to the paper.
+
+---
 
 ## 📧 Contact
-For any questions or issues, please open an issue in this repository.
+
+If you encounter any issues or have questions:
+
+* Please open an issue in this repository
+* Or contact the authors via the paper’s corresponding email
+
+We sincerely appreciate your interest in our work.
+If this repository is helpful, a ⭐ star would be greatly appreciated!
