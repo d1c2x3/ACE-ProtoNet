@@ -135,11 +135,6 @@ This is particularly useful for coronary artery segmentation, where small isolat
 
 Extracts local patches from volumetric predictions for further refinement or analysis.
 
-**Typical usage:**
-
-* Patch-based refinement
-* ROI-based evaluation
-* Error region inspection
 ---
 
 ## 📦 Pre-trained Weights
