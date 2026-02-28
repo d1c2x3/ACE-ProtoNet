@@ -51,6 +51,11 @@ Data/
 * **`mask/`**: Corresponding ground-truth coronary artery masks.
 * **Note**: Each image–mask pair **must share the same filename** (e.g., `1.npy` in `img/` corresponds to `1.npy` in `mask/`).
 
+A data-splitting script is also provided:
+
+`datasets/create_folder.py`
+
+This script automatically creates the required folder structure and splits the dataset into training/validation/testing subsets.
 ---
 
 ## 🚀 Usage
