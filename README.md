@@ -107,6 +107,49 @@ python test.py
 ```
 
 ---
+## 🔎 Post-processing
+
+To further improve segmentation quality and suppress small false-positive regions, we provide simple yet effective post-processing utilities in:
+
+```
+postprocess/
+├── get_patch.py
+└── keep_the_largest_area.py
+```
+
+### 1️⃣ `keep_the_largest_area.py`
+
+Removes small disconnected components from the predicted segmentation and retains only the largest connected region.
+
+This is particularly useful for coronary artery segmentation, where small isolated predictions may appear due to noise or uncertainty in low-contrast regions.
+
+**Purpose:**
+
+* Eliminate false-positive fragments
+* Improve structural consistency
+* Enhance quantitative evaluation stability
+
+---
+
+### 2️⃣ `get_patch.py`
+
+Extracts local patches from volumetric predictions for further refinement or analysis.
+
+**Typical usage:**
+
+* Patch-based refinement
+* ROI-based evaluation
+* Error region inspection
+
+---
+
+### 💡 Recommended Pipeline
+
+For optimal performance, we recommend the following inference workflow:
+
+1. Run `test.py` to obtain raw segmentation predictions
+2. Apply `keep_the_largest_area.py` to remove isolated components
+3. (Optional) Use `get_patch.py` for region-based refinement or analysis
 
 ## 📦 Pre-trained Weights
 
@@ -138,6 +181,7 @@ To ensure reproducibility:
 * Verify CUDA / PyTorch compatibility
 
 For exact experimental settings, please refer to the paper.
+
 
 ---
 
