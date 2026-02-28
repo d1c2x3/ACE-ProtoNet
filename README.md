@@ -8,31 +8,6 @@ This repository contains the **official PyTorch implementation** of our paper:
 
 ---
 
-## 📌 Overview
-
-Accurate segmentation of coronary arteries from **Coronary CT Angiography (CCTA)** is critical for:
-
-* Quantitative stenosis assessment
-* Plaque characterization
-* Preoperative planning and intervention guidance
-
-However, automated coronary artery segmentation remains challenging due to:
-
-* Low vessel-to-background contrast
-* High anatomical variability
-* Complex and highly branching vascular topology
-
-To address these issues, we propose **ACE-ProtoNet**, a unified framework that integrates:
-
-* **Adaptive Covariance Eigen-Gate (ACE-Gate)**
-  → Enhances structural feature representation via covariance eigen modulation
-
-* **Uncertainty-aware Prototype Learning Head (UPL-Head)**
-  → Introduces prototype learning with uncertainty-aware response calibration
-
-Together, these components enable robust and accurate coronary artery segmentation in challenging clinical scenarios.
-
----
 
 ## ✨ Key Features
 
@@ -171,7 +146,7 @@ For exact experimental settings, please refer to the paper.
 If you encounter any issues or have questions:
 
 * Please open an issue in this repository
-* Or contact the authors via the paper’s corresponding email
+* Or contact the authors via  caixia_dong@xjtu.edu.cn
 
 We sincerely appreciate your interest in our work.
 If this repository is helpful, a ⭐ star would be greatly appreciated!
