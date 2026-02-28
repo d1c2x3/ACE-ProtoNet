@@ -140,16 +140,7 @@ Extracts local patches from volumetric predictions for further refinement or ana
 * Patch-based refinement
 * ROI-based evaluation
 * Error region inspection
-
 ---
-
-### 💡 Recommended Pipeline
-
-For optimal performance, we recommend the following inference workflow:
-
-1. Run `test.py` to obtain raw segmentation predictions
-2. Apply `keep_the_largest_area.py` to remove isolated components
-3. (Optional) Use `get_patch.py` for region-based refinement or analysis
 
 ## 📦 Pre-trained Weights
 
